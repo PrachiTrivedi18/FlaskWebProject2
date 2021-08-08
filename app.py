@@ -1,7 +1,6 @@
 """
 Routes and views for the flask application.
 """
-from FlaskWebProject2 import app
 from datetime import datetime
 from azure.storage.blob import generate_container_sas, ContainerSasPermissions
 from azure.storage.blob import generate_blob_sas, BlobSasPermissions

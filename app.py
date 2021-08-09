@@ -1,10 +1,12 @@
 """
 Routes and views for the flask application.
 """
+from flask import Flask
 from datetime import datetime
 from azure.storage.blob import generate_container_sas, ContainerSasPermissions
 from azure.storage.blob import generate_blob_sas, BlobSasPermissions
 from flask import render_template
+app = Flask(__name__)
 
 account_name = "cdnstore1"
 account_key = "iM7sub7rvl+lBdORwaq9u5KWPiN3Q2h5sYopVxyiAbsemOkedIPeSrnmEQWeIICS32HNyznhzIO8Zol5A55BGw=="

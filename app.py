@@ -2,11 +2,13 @@
 Routes and views for the flask application.
 """
 from flask import Flask
+app = Flask(__name__)
+
 from datetime import datetime
 from azure.storage.blob import generate_container_sas, ContainerSasPermissions
 from azure.storage.blob import generate_blob_sas, BlobSasPermissions
 from flask import render_template
-app = Flask(__name__)
+
 
 account_name = "cdnstore1"
 account_key = "iM7sub7rvl+lBdORwaq9u5KWPiN3Q2h5sYopVxyiAbsemOkedIPeSrnmEQWeIICS32HNyznhzIO8Zol5A55BGw=="
@@ -41,6 +43,10 @@ def get_img_url_with_blob_sas_token(blob_name):
 def index(blob_name="Beauty.JPEG"):
     img_url_with_sas_token = get_img_url_with_blob_sas_token(blob_name)
     return render_template('index.html',title='Home Page',img_url_with_sas_token=img_url_with_sas_token)
+
+
+if __name__ == "__main__":
+app.run()
 
 
 

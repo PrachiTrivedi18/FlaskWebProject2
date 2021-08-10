@@ -2,7 +2,7 @@
 Routes and views for the flask application.
 """
 from flask import Flask
-app = Flask(__name__, template_folder= "template")
+app = Flask(__name__, template_folder= "templates")
 
 from datetime import datetime
 from datetime import timedelta
@@ -41,7 +41,8 @@ def get_img_url_with_blob_sas_token(blob_name):
     return blob_url_with_blob_sas_token
 
 @app.route('/')
-def index(blob_name="Beauty.JPEG"):
+@app.route('/showimg/<blob_name>')
+def index(blob_name=None):
     img_url_with_sas_token = get_img_url_with_blob_sas_token(blob_name)
     return render_template('index.html',title='Home Page',img_url_with_sas_token=img_url_with_sas_token)
 

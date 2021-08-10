@@ -40,8 +40,8 @@ def get_img_url_with_blob_sas_token(blob_name):
     blob_url_with_blob_sas_token = f"https://{account_name}.blob.core.windows.net/{container_name}/{blob_name}?{blob_sas_token}"
     return blob_url_with_blob_sas_token
 
-@app.route('/')
-@app.route('/showimg/<blob_name>')
+@app.route("/showimg")
+@app.route("/showimg/<blob_name>")
 def index(blob_name=None):
     img_url_with_sas_token = get_img_url_with_blob_sas_token(blob_name)
     return render_template('index.html',title='Home Page',img_url_with_sas_token=img_url_with_sas_token)

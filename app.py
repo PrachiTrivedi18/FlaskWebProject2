@@ -42,7 +42,7 @@ def get_img_url_with_blob_sas_token(blob_name):
 
 @app.route("/showimg")
 @app.route("/showimg/<blob_name>")
-def index(blob_name=None):
+def showimg(blob_name="Beauty.JPG"):
     img_url_with_sas_token = get_img_url_with_blob_sas_token(blob_name)
     return render_template('index.html',title='Home Page',img_url_with_sas_token=img_url_with_sas_token)
 

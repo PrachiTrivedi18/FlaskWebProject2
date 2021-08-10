@@ -2,7 +2,7 @@
 Routes and views for the flask application.
 """
 from flask import Flask
-app = Flask(__name__, template_folder= "templates")
+app = Flask(__name__, template_folder= "template")
 
 from datetime import datetime
 from datetime import timedelta
